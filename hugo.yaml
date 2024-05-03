@@ -3,6 +3,15 @@ languageCode: en-us
 title: Fabio Zamboni
 theme: ["PaperMod"]
 
+enableRobotsTXT: true
+enableEmoji: true
+
+outputs:
+    home:
+        - HTML
+        - RSS
+        - JSON
+
 menu:
   main:
     - identifier: projects
@@ -19,6 +28,14 @@ params:
 #  defaultTheme: light
 #  defaultTheme: dark
   defaultTheme: auto # to switch between dark or light according to browser theme
+
+  assets:
+    favicon: "/favicon.ico"
+    favicon16x16: "/favicon-16x16.png"
+    favicon32x32: "/favicon-32x32.png"
+    apple_touch_icon: "/apple-touch-icon.png"
+    safari_pinned_tab: "/safari-pinned-tab.svg"
+
 
   profileMode:
     enabled: true
