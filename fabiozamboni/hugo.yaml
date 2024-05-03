@@ -1,0 +1,38 @@
+baseURL: https://fabiozamboni.github.io/
+languageCode: en-us
+title: Fabio Zamboni
+theme: ["PaperMod"]
+
+menu:
+  main:
+    - identifier: projects
+      name: projects
+      url: /projects/
+      weight: 10
+#    - identifier: example
+#      name: example.org
+#      url: https://example.org
+#      weight: 30
+
+params:
+#  env: production
+#  defaultTheme: light
+#  defaultTheme: dark
+  defaultTheme: auto # to switch between dark or light according to browser theme
+
+  profileMode:
+    enabled: true
+    title: "Fabio Zamboni" # optional default will be site title
+    subtitle: "Control & Machine Learning Engineer"
+#    imageUrl: "<image link>" # optional
+#    imageTitle: "<title of image as alt>" # optional
+#    imageWidth: 120 # custom size
+#    imageHeight: 120 # custom size
+
+  socialIcons: # optional
+    - name: "github"
+      url: "<https://github.com/zamb0>"
+    - name: "instagram"
+      url: "https://www.instagram.com/fabisognoquotidiano/"
+    - name: "email"
+      url: "solitaria.contadini_0y@icloud.com"
