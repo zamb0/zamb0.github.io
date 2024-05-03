@@ -16,7 +16,7 @@ menu:
   main:
     - identifier: projects
       name: projects
-      url: /projects/
+      url: /projects
       weight: 10
 #    - identifier: example
 #      name: example.org
