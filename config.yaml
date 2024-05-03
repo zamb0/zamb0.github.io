@@ -48,9 +48,9 @@ params:
 
   socialIcons: # optional
     - name: "github"
-      url: "<https://github.com/zamb0>"
+      url: "https://github.com/zamb0"
     - name: "instagram"
       url: "https://www.instagram.com/fabisognoquotidiano/"
     - name: "email"
-      url: "solitaria.contadini_0y@icloud.com"
+      url: "mailto:solitaria.contadini_0y@icloud.com"
 
