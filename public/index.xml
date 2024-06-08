@@ -8,11 +8,11 @@
     <language>en-us</language>
     <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title></title>
+      <title>Projects</title>
       <link>http://localhost:1313/projects/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/projects/</guid>
-      <description>Cooking 🍳 </description>
+      <description>2D_Fast_Fourier_Transform_OpenMPI 2D Fast Fourier Transform (2D FFT) parallel algorithm using OpenMPI. The algorithm is implemented in C and it is based on the Cooley-Tukey iterative algorithm. ☆4 ML_reports A collection of reports about Machine Learning projects. ☆3 cloud-project-2024 Project for the Cloud Computing class of 2023-2024 ☆2 CSVtoRelaX Convert CSV file to readable RelaX format ☆1 zamb0.github.io ☆1 Progetto-D22 Progetto studenti (gruppo ArrayIndexOutOfBoundsException) ☆0 zamb0 Config files for my GitHub profile.</description>
     </item>
   </channel>
 </rss>

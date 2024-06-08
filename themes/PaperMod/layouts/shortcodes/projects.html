@@ -1,0 +1,69 @@
+<style>
+  .projects {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+  }
+  
+  .project {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border: 0.5px solid #ccc;
+    transition: all 0.3s ease;
+  }
+
+  .project:hover {
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+    transform: translateY(-0.5px);
+    transition: all 0.3s ease;
+  }
+
+  .project_link {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .project_title {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+
+  .project_description {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 10px;
+  }
+
+  .project_star-box {
+    font-size: 0.8rem;
+    color: #666;
+  }
+
+</style>
+
+<div class="projects">
+  {{ $allProjects := slice }}
+  {{ range $.Site.Data.repos }}
+    {{ $allProjects = $allProjects | append . }}
+  {{ end }}
+    {{ $allProjects = $allProjects | append $.Site.Data.manual }}
+
+  {{ range sort $allProjects "stargazers_count" "desc" }}
+  <div class="project">
+    <a href="{{ .html_url }}" class="project_link">
+      <div class="project_title">
+        {{ .name }}
+      </div>
+      <div class="project_description">
+        {{ .description }}
+      </div>
+      <div class="project_star-box">
+        ☆{{ .stargazers_count }}
+      </div>
+    </a>
+  </div>
+  {{ end }}
+</div>
