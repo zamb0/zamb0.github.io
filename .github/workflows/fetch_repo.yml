@@ -30,5 +30,11 @@ jobs:
         git config --global user.email 'actions@github.com'
         git add data/repos.json
         git add data/manual.json
+        # Check for diff
+        git diff --staged --exit-code || {
+          echo "No changes found, any commit will be created."
+          exit 0
+        }
+        # Commit and push
         git commit -m "Update data with GitHub Actions"
         git push
