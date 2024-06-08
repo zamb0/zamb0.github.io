@@ -18,7 +18,7 @@ jobs:
 
     - name: Fetch Repos Data
       run: |
-        curl https://api.github.com/users/zamb0/zamb0.github.io > data/repos.json
+        curl https://api.github.com/users/zamb0/repos > data/repos.json
 
     - name: Fetch Cloud Computing Repo
       run: |
