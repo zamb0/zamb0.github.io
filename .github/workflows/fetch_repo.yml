@@ -23,15 +23,23 @@ jobs:
       run: |
         curl https://api.github.com/repos/TeoScardov/cloud-project-2024 > data/manual.json
 
-    - name: Commit and Push Repos Data
+    - name: Commit
       run: |
         git config --global user.name 'GitHub Actions'
         git config --global user.email 'actions@github.com'
         git add data/repos.json
         git add data/manual.json
-        if git diff --staged --quiet; then
-          echo "No changes, commit skipped."
-        else
-          git commit -m "Update repository data"
-          git push
-        fi
+        git diff --staged --quiet || git commit -m "Update Repos Data"
+    
+      if: success()
+    - name: Commit and Push Repos Data
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.HUGO_SITE_GIT_TOKEN }}
+        branch: ${{ github.ref }}
+      
+      if: failure()
+    - name: Print no changes
+      run: echo "No changes"
+      
+      
