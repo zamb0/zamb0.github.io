@@ -65,14 +65,14 @@
   "releases_url": "https://api.github.com/repos/TeoScardov/cloud-project-2024/releases{/id}",
   "deployments_url": "https://api.github.com/repos/TeoScardov/cloud-project-2024/deployments",
   "created_at": "2024-01-03T14:25:22Z",
-  "updated_at": "2024-03-18T11:16:56Z",
-  "pushed_at": "2024-07-03T22:24:09Z",
+  "updated_at": "2024-07-12T08:05:52Z",
+  "pushed_at": "2024-07-11T14:30:34Z",
   "git_url": "git://github.com/TeoScardov/cloud-project-2024.git",
   "ssh_url": "git@github.com:TeoScardov/cloud-project-2024.git",
   "clone_url": "https://github.com/TeoScardov/cloud-project-2024.git",
   "svn_url": "https://github.com/TeoScardov/cloud-project-2024",
   "homepage": null,
-  "size": 15812,
+  "size": 20991,
   "stargazers_count": 2,
   "watchers_count": 2,
   "language": null,
@@ -107,5 +107,5 @@
   "default_branch": "main",
   "temp_clone_token": null,
   "network_count": 2,
-  "subscribers_count": 1
+  "subscribers_count": 2
 }
