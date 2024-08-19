@@ -1,0 +1,20 @@
+{{ if or (not .Parent) (not (eq .Parent.Name "leaflet-map")) }}
+{{ errorf "%s: cannot be used outside leaflet-map: %s" .Name .Position }}
+{{ end }}
+
+{{ if not (isset .Params "path") }}
+{{ errorf "%s: missing 'path' parameter: %s" .Name .Position }}
+{{ end }}
+
+{{ $uniqueMapId := (printf "%s:%d" .Page.File.UniqueID .Parent.Ordinal) | md5 | safeJS }}
+
+<script>
+	map_options_{{ $uniqueMapId }}.tracks.push({
+		source: {{ .Get "path" }},
+		title: {{ .Get "title" | default ("null" | safeJS) }},
+		color: {{ .Get "color" | default ("null" | safeJS) }},
+		opacity: {{ .Get "opacity" | default ("null" | safeJS) }},
+		// Internal use, ignored by quip-maps
+		downloadable: {{ .Get "downloadable" | default "true" | safeJS }},
+	})
+</script>

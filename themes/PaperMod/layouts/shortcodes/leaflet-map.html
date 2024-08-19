@@ -1,0 +1,103 @@
+{{ $uniqueId := (printf "%s:%d" .Page.File.UniqueID .Ordinal) | md5 | safeJS }}
+
+<div id="map_container_{{ $uniqueId }}" class="map-container" style="width: {{ .Get "width" | default "auto" }}; height: {{ .Get "height" | default "50vh" }};">
+	<div id="map_{{ $uniqueId }}" class="map"></div>
+	<div id="map_backdrop_{{ $uniqueId }}" class="map-backdrop"></div>
+	<div id="map_attribution_{{ $uniqueId }}" class="map-attribution"></div>
+</div>
+<div id="map_track_downloads_{{ $uniqueId }}">
+</div>
+
+<script>
+	var map_options_{{ $uniqueId }} = {
+		element: 'map_{{ $uniqueId }}',
+		center: null,
+		zoom: null,
+		layers: {
+			enabled: [],
+		},
+		scale: false,
+		maximize: {
+			enabled: {{ .Get "maximizable" | default "true" | safeJS }},
+		},
+		freeze: {
+			enabled: {{ .Get "freezable" | default "true" | safeJS }},
+			{{ .Get "freezeOptions" | default "hoverToThawDuration: 1500" | safeJS }}
+		},
+		markers: [],
+		tracks: [],
+		heightgraph: null,
+	};
+</script>
+
+{{ .Inner }}
+
+<script>
+	$(document).ready(function() {
+		{
+			var lat  = {{ .Get "centerLat" | default "null" | safeJS }};
+			var lon  = {{ .Get "centerLon" | default "null" | safeJS }};
+			var zoom = {{ .Get "zoom"      | default "null" | safeJS }};
+			const needCenterAndZoom = map_options_{{ $uniqueId }}.markers.length == 0 && map_options_{{ $uniqueId }}.tracks.length == 0;
+			if (needCenterAndZoom && (lat === null || lon === null || zoom === null))
+			{
+				$('#map_{{ $uniqueId }}').text("ERROR: Map without markers or tracks requires 'centerLat', 'centerLon', and 'zoom' parameters.");
+				return;
+			}
+			if (lat !== null && lon !== null)
+			{
+				map_options_{{ $uniqueId }}.center = {
+					lat: lat,
+					lon: lon,
+				};
+			}
+			if (zoom !== null)
+			{
+				map_options_{{ $uniqueId }}.zoom = zoom;
+			}
+		}
+
+		// Create the map
+		var map = Quip.createTrackMap(map_options_{{ $uniqueId }});
+
+		{{ if .Get "resizable" | default "true" }}
+		// Make the map resizable
+		$('#map_container_{{ $uniqueId }}').resizable({
+			handles: 'e, s, se',
+			resize: () => map.invalidateSize(),
+		});
+		{{ end }}
+
+		// Move the Leaflet attribution out of the map container
+		$('#map_attribution_{{ $uniqueId }}').append(
+			$('#map_container_{{ $uniqueId }} .leaflet-control-attribution')
+		);
+
+		// Restore the map when clicking outside the maximized map
+		{
+			const backdrop = L.DomUtil.get('map_backdrop_{{ $uniqueId }}');
+			backdrop.addEventListener('click', ev => { map.restore(); });
+		}
+
+		// Create a download button for every downloadable track
+		for (const track of map_options_{{ $uniqueId }}.tracks)
+		{
+			if (!track.downloadable)
+				continue;
+
+			const a = L.DomUtil.create(
+				'a',
+				'me-2 mb-2',
+				L.DomUtil.get('map_track_downloads_{{ $uniqueId }}')
+			);
+			a.setAttribute('href', track.source);
+			const button = L.DomUtil.create(
+				'button',
+				// Note that the following classes must be part of the safelist in hugo-theme-gallery-flex's tailwind.config.js:
+				'py-2.5 px-5 me-2 mb-2 text-sm font-medium rounded-lg border focus:outline-none focus:z-10 focus:ring-4 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700',
+				a
+			);
+			button.innerHTML = track.title ? `Download GPX (${track.title})` : 'Download GPX';
+		}
+	});
+</script>

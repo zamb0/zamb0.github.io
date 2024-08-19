@@ -1,0 +1,14 @@
+{{ if or (not .Parent) (not (eq .Parent.Name "leaflet-map")) }}
+{{ errorf "%s: cannot be used outside leaflet-map: %s" .Name .Position }}
+{{ end }}
+
+{{ $uniqueMapId := (printf "%s:%d" .Page.File.UniqueID .Parent.Ordinal) | md5 | safeJS }}
+
+<script>
+	map_options_{{ $uniqueMapId }}.scale = {
+		enabled: true,
+		{{ with .Get "position" }}
+		position: {{ . }},
+		{{ end }}
+	};
+</script>

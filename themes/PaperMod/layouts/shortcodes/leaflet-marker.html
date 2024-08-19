@@ -1,0 +1,16 @@
+{{ if or (not .Parent) (not (eq .Parent.Name "leaflet-map")) }}
+{{ errorf "%s: cannot be used outside leaflet-map: %s" .Name .Position }}
+{{ end }}
+
+{{ if not (isset .Params "lat") }}
+{{ errorf "%s: missing 'lat' parameter: %s" .Name .Position }}
+{{ end }}
+{{ if not (isset .Params "lon") }}
+{{ errorf "%s: missing 'lon' parameter: %s" .Name .Position }}
+{{ end }}
+
+{{ $uniqueMapId := (printf "%s:%d" .Page.File.UniqueID .Parent.Ordinal) | md5 | safeJS }}
+
+<script>
+	map_options_{{ $uniqueMapId }}.markers.push({ lat: {{ .Get "lat" }}, lon: {{ .Get "lon" }} })
+</script>

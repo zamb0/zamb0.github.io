@@ -1,0 +1,93 @@
+.map-container {
+	position: relative;
+	padding: 6px 6px 18px 6px;
+	background: #eee;
+	border-radius: 8px;
+}
+
+.ui-icon {
+	background-image: url('../images/resize-handle-se.png');
+	background-position: -1px -1px;
+}
+
+.map {
+	height: 100%;
+	border-radius: 8px;
+}
+
+.map g.legend, g.legend-hover {
+	display: none;
+}
+
+.map .heightgraph-container {
+	border-radius: 8px;
+}
+
+/* Prevent styling from accidentally adding a margin to <img> elements. Leaflet tiles are such
+   elements and adding a margin creates a hard-to-notice and hard-to-debug offset in map tiles.
+   This problem has been observed when embedding maps within a @tailwindcss/typography <article>. */
+.map-container img {
+	margin: 0px;
+}
+
+/* Heightgraph grid lines */
+.map .heightgraph .grid .tick line {
+	stroke: #ccc;
+}
+
+.map-attribution {
+	left: 0px;
+	bottom: 3px;
+	font-size: 11px;
+	font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+}
+
+.map-attribution a {
+	color: #0078A8;
+	text-decoration: none;
+}
+
+.leaflet-right .leaflet-control {
+	margin: 6px;
+}
+
+/* Heightgraph data point selector */
+svg.heightgraph-container .select-info {
+	display: none;
+}
+
+svg.heightgraph-container .select-symbol {
+	display: none;
+}
+
+/* Map style when maximized */
+
+.map.leaflet-maximized {
+	height: 90% !important;
+	top: 5%;
+	border: 2px solid white;
+	border-radius: 8px;
+	z-index: 1001; /* above the backdrop */
+}
+
+.map-backdrop {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	background-color: rgba(0, 0, 0, 0.7);
+}
+
+.map ~ .map-backdrop {
+	display: none;
+}
+
+.map.leaflet-maximized ~ .map-backdrop {
+	display: block;
+	z-index: 1000; /* some leaflet controls use 400. top that. */
+}
+
+.map.leaflet-maximized ~ .map-attribution {
+	display: none;
+}

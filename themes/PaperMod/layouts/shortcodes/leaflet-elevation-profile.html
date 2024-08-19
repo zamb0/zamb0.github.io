@@ -1,0 +1,33 @@
+{{ if or (not .Parent) (not (eq .Parent.Name "leaflet-map")) }}
+{{ errorf "%s: cannot be used outside leaflet-map: %s" .Name .Position }}
+{{ end }}
+
+{{ $uniqueMapId := (printf "%s:%d" .Page.File.UniqueID .Parent.Ordinal) | md5 | safeJS }}
+
+<script>
+	map_options_{{ $uniqueMapId }}.heightgraph = {
+		enabled: true,
+		expanded: {{ .Get "expanded" | default "false" }},
+		{{ with .Get "resizable" }}
+		resizable: {{ . }},
+		{{ end }}
+		{{ with .Get "width" }}
+		width: {{ . }},
+		{{ end }}
+		{{ with .Get "height" }}
+		height: {{ . }},
+		{{ end }}
+		{{ with .Get "minWidth" }}
+		minWidth: {{ . }},
+		{{ end }}
+		{{ with .Get "minHeight" }}
+		minHeight: {{ . }},
+		{{ end }}
+		{{ with .Get "maxWidth" }}
+		maxWidth: {{ . }},
+		{{ end }}
+		{{ with .Get "maxHeight" }}
+		maxHeight: {{ . }},
+		{{ end }}
+	};
+</script>

@@ -15,16 +15,22 @@ outputs:
 menu:
   main:
     - identifier: projects
-      name: Projects
+      name: Projects 💻
       url: /projects/
       weight: 10
+
+    - identifier: outdoors
+      name: Outdoors 🥾
+      url: /outdoors/
+      weight: 20
+
 #    - identifier: example
 #      name: example.org
 #      url: https://example.org
 #      weight: 30
 
 params:
-#  env: production
+  env: production
 #  defaultTheme: light
 #  defaultTheme: dark
   defaultTheme: auto # to switch between dark or light according to browser theme
@@ -54,3 +60,24 @@ params:
     - name: "email"
       url: "mailto:solitaria.contadini_0y@icloud.com"
 
+  hugoLeaflet:
+    css:
+      - href: "https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+        params:
+          integrity: "sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+        crossorigin: ""
+      - href: "https://unpkg.com/@raruto/leaflet-elevation@1.1.1/dist/leaflet-elevation.css"
+      - href: "css/leaflet.extra-markers.min.css"
+    js:
+      - src: "https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+        params:
+          integrity: "sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+        crossorigin: ""
+      - src: "js/leaflet.elevation.js"
+      - src: "js/leaflet.hugo.js"
+      - src: "js/leaflet.extra-markers.min.js"
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
