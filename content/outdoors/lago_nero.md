@@ -1,7 +1,7 @@
 +++
 title = 'Exploring Lago Nero surroundings'
 date = 2024-08-19T16:30:21+02:00
-draft = true
+draft = false
 tags = ['hike', 'piacenza']
 +++
 
