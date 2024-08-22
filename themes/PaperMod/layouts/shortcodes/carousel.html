@@ -1,0 +1,154 @@
+{{ $.Scratch.Add "width" (.Get "width" | default "500px") }}
+{{ $.Scratch.Add "height" (.Get "height" | default "300px") }}
+{{ $.Scratch.Add "auto-slide" (.Get "auto-slide" | default "0") }}
+
+{{ $.Scratch.Add "arrow-left" (.Get "arrow-left" | default "fa-chevron-left") }}
+{{ $.Scratch.Add "arrow-right" (.Get "arrow-right" | default "fa-chevron-right") }}
+
+{{ if ne (.Get "no-fa") "true" }}
+    <!-- FontAwesome -->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+{{end}}
+
+{{ if ne (.Get "no-jquery") "true" }}
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+{{end}}
+
+<!-- Aggiungi jQuery UI -->
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+
+<style>
+/* Isolamento dei CSS per evitare conflitti con Hugo PaperMod */
+#carousel-container {
+    position: relative;
+    width: 100%; /* Larghezza massima */
+    height: 60vh; /* Altezza personalizzabile, con valore predefinito */
+    overflow: hidden;
+    margin: 0 auto;
+    border-radius: 5px; /* Facoltativo, per un aspetto più pulito */
+}
+
+#carousel-slides {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.66s ease;
+}
+
+.carousel-slide {
+    flex: 0 0 100%;
+    height: 100%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f0f0f0;
+}
+
+.carousel-slide img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.carousel-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    cursor: pointer;
+    color: #fff;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+}
+
+.carousel-nav:hover {
+    opacity: 1.0;
+}
+
+#carousel-left {
+    left: 10px;
+}
+
+#carousel-right {
+    right: 10px;
+}
+
+/* Adattabilità mobile */
+@media (max-width: 768px) {
+    #carousel-container {
+        height: 30vh; /* Altezza ridotta per schermi piccoli */
+    }
+}
+</style>
+
+<!-- Gallery -->
+<div id="carousel-container">
+    <div id="carousel-slides">
+        {{- with (.Get "images") -}} 
+            {{- $fileContent := readFile . -}}
+            {{- if $fileContent -}}
+                {{- $images := $fileContent | transform.Unmarshal -}}
+                {{- range $images -}} 
+                    <div class="carousel-slide"><img src="{{ . }}" alt="Image"></div>
+                {{- end -}}
+            {{- else -}}
+                <p>Nessuna immagine disponibile.</p>
+            {{- end -}}
+        {{- else -}}
+            <p>Nessuna immagine disponibile.</p>
+        {{- end }}
+    </div>
+    <span class="carousel-nav fa {{ $.Scratch.Get "arrow-left" }} fa-3x" id="carousel-left"></span>
+    <span class="carousel-nav fa {{ $.Scratch.Get "arrow-right" }} fa-3x" id="carousel-right"></span>
+</div>
+
+<script>
+jQuery(function($) {
+    var currentSlide = 0;
+    var $carouselContainer = $('#carousel-container');
+    var $carouselSlides = $('#carousel-slides');
+    var slideCount = $carouselSlides.children().length;
+    var autoSlide = parseInt({{ $.Scratch.Get "auto-slide" }}, 10);
+    var autoSlideInterval;
+
+    function updateSlide() {
+        var slideWidth = $carouselContainer.width();
+        $carouselSlides.css('transform', 'translateX(' + (-currentSlide * slideWidth) + 'px)');
+    }
+
+    $('#carousel-left').click(function() {
+        clearAutoSlide();
+        currentSlide = (currentSlide - 1 + slideCount) % slideCount;
+        updateSlide();
+    });
+
+    $('#carousel-right').click(function() {
+        clearAutoSlide();
+        currentSlide = (currentSlide + 1) % slideCount;
+        updateSlide();
+    });
+
+    $(window).resize(updateSlide);
+
+    function startAutoSlide() {
+        if (autoSlide > 0) {
+            autoSlideInterval = setInterval(function() {
+                currentSlide = (currentSlide + 1) % slideCount;
+                updateSlide();
+            }, autoSlide);
+        }
+    }
+
+    function clearAutoSlide() {
+        if (autoSlideInterval) {
+            clearInterval(autoSlideInterval);
+        }
+        startAutoSlide();
+    }
+
+    startAutoSlide();
+});
+</script>
