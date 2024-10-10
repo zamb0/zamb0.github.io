@@ -46,7 +46,7 @@ params:
   profileMode:
     enabled: true
     title: "Fabio Zamboni" # optional default will be site title
-    subtitle: "Control & Machine Learning Engineer"
+    subtitle: "IT Engineer"
 #    imageUrl: "<image link>" # optional
 #    imageTitle: "<title of image as alt>" # optional
 #    imageWidth: 120 # custom size
