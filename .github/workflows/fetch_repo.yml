@@ -18,10 +18,43 @@ jobs:
     
     - uses: actions/setup-node@v4
 
+    - name: gh cli
+      run: |
+        sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-key C99B11DEB97541F0
+        sudo apt-add-repository https://cli.github.com/packages
+        sudo apt update
+        sudo apt install gh
+
+    - name: Login to GitHub
+      run: gh auth login --with-token ${{ secrets.HUGO_SITE_GIT_TOKEN }}
+
     - name: Fetch Repos Data
       run: |
-        curl https://api.github.com/users/zamb0/repos > data/repos.json
-        curl https://api.github.com/repos/TeoScardov/cloud-project-2024 > data/manual.json
+        gh api \
+        --header 'Accept: application/vnd.github+json' \
+        --method GET users/zamb0/repos \
+        --include | grep 200
+
+        if [ $? -eq 0 ]; then
+          gh api \
+          --header 'Accept: application/vnd.github+json' \
+          --method GET users/zamb0/repos > data/repos.json
+        else
+          echo "Failed to fetch data"
+        fi
+        
+        gh api \
+        --header 'Accept: application/vnd.github+json' \
+        --method GET repos/TeoScardov/cloud-project-2024 \
+        --include | grep 200
+
+        if [ $? -eq 0 ]; then
+          gh api \
+          --header 'Accept: application/vnd.github+json' \
+          --method GET repos/TeoScardov/cloud-project-2024 > data/manual.json
+        else
+          echo "Failed to fetch data"
+        fi
 
     - name: Update resources
       uses: test-room-7/action-update-file@v1.8.0
