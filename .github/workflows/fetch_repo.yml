@@ -19,8 +19,11 @@ jobs:
     - uses: actions/setup-node@v4
 
     - name: Login to GitHub
-      run: gh auth login --with-token ${{ secrets.HUGO_SITE_GIT_TOKEN }}
-
+      env:  
+        GH_TOKEN: ${{ github.token }}
+      run:
+        echo $GH_TOKEN | gh auth login --with-token
+        
     - name: Fetch Repos Data
       run: |
         gh api \
