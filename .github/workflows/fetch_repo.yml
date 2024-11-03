@@ -22,8 +22,8 @@ jobs:
       env:  
         GH_TOKEN: ${{ github.token }}
       run:
-        echo $GH_TOKEN | gh auth login --with-token
-        
+        gh auth login
+
     - name: Fetch Repos Data
       run: |
         gh api \
