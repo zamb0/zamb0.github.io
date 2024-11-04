@@ -32,7 +32,8 @@ jobs:
           --header 'Accept: application/vnd.github+json' \
           --method GET users/zamb0/repos > data/repos.json
         else
-          echo "Failed to fetch data"
+          echo "Failed to fetch profile data"
+          exit 1
         fi
         
         gh api \
@@ -45,7 +46,8 @@ jobs:
           --header 'Accept: application/vnd.github+json' \
           --method GET repos/TeoScardov/cloud-project-2024 > data/manual.json
         else
-          echo "Failed to fetch data"
+          echo "Failed to fetch mono repo"
+          exit 1
         fi
 
     - name: Update resources
