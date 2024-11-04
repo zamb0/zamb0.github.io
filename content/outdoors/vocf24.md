@@ -5,9 +5,14 @@ draft = false
 tags = ['boulder', 'vocf']
 +++
 
-During the summer i hadn't much time to dedicate to climbing or outdoor activities in general due to university exams and the work on my master thesis, but finally september ends and with it my lasts exams.
-In the meantime a friend of mine told me about a climbing festival in Piemonte region, the [valle orco climbing festival](https://valleorcoclimbingfestival.com/), i was very interested in it and i decided to join him. We planned to stay from Friday night to Sunday evening so we left on friday afternoon after i finished my very last exam and we arrived in Ceresole Reale in the evening, i set up my tent and my friend his van and we went to the night party in the festival area. The atmosphere was very nice, there were a lot of people and the music was good, we spent the night dancing with other climbers. The day after we woke up really early and, after a caffe, we went to the climbing area called Fonti, there we spent all the morning closing some 5b, 5c and attempting to climb a 6a. In the afternoon we went to the Gold Digger climbing area searching for new projects. The day after, early in the morning we reached Area 51 where we faced some hard boulders, i was so happy that i was able to close my first crack boulder.
-In the afternoon i followed the closing ceremony with the olimpic atlete [Hamish McArthur](https://www.instagram.com/hamish_mcarthur/) competing for the first prize in the boulder competition.
-The festival was really nice, the climbing areas were beautiful and the people were very friendly, i hope to come back next year.
+During the summer, I didn’t have much time for climbing or outdoor activities because of university exams and my work on my master’s thesis. But finally, September ended, and with it, my last exams.
+
+In the meantime, a friend told me about a climbing festival in the Piemonte, the [Valle Orco Climbing Festival](https://valleorcoclimbingfestival.com/). It sounded amazing, so I decided to join him. We planned to stay from Friday night to Sunday evening. As soon as I finished my last exam on Friday afternoon, we hit the road, arriving in Ceresole Reale that evening. I set up my tent, my friend parked his van, and we headed over to the night party in the festival area. The atmosphere was great, with lots of people and good music, and we spent the night dancing with fellow climbers.
+
+The next morning, we woke up early, grabbed a quick coffee, and headed to a climbing spot called Fonti. We spent the whole morning climbing some 5b and 5c routes and even gave a 6a a try. In the afternoon, we went to the Gold Digger climbing area to scout out some new projects.
+
+On Sunday morning, we went to Area 51, where we tackled some challenging boulders. I was thrilled to close my first crack boulder here! Later in the afternoon, we attended the closing ceremony, watching Olympic athlete [Hamish McArthur](https://www.instagram.com/hamish_mcarthur/) compete for the top prize in the boulder competition.
+
+The festival was fantastic, the climbing areas were stunning, and everyone was so friendly. I really hope to return next year!
 
 {{< carousel images="static/images/vocf24.yaml" >}}
