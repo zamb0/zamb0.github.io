@@ -5,13 +5,13 @@ draft = false
 tags = ['hike', 'clusone']
 +++
 
-A friend of mine needed to return something to Clusone and invited my sister and me to join her for the trip. We agreed, and the plan was to hike to Pizzo Formico and then have lunch at a chalet owned by a friend of hers.
+A friend of mine had to return something to a friend in Clusone and invited my sister and me to join her for the trip. We agreed and the plan was to hike to Formico Peak and then have lunch at a friend's cabin.
 
-The hike started off nicely. We walked through the woods on a gentle path that wasn’t too steep. Soon, we reached a meadow called Pianone, where cows were grazing peacefully. As we continued, the trail gradually became steeper. After passing Forcella Larga, the terrain grew rockier and more challenging as we approached the summit.
+The hike started well. We walked through the forest on a gentle path that was not too steep. Soon we reached a meadow called Pianone, where cows were quietly grazing. As we continued, the trail gradually became steeper. After passing Forcella Larga, the terrain became rockier and more challenging as we approached the summit.
 
-Once we reached the top, we were rewarded with a stunning view of the valley and the surrounding mountains. From there, we took a different route down, passing by Torrente Valle Gavazzo. Unfortunately, we stumbled upon a dead deer along the way, likely killed by a wolf. The smell in the area was quite unpleasant.
+Once we reached the summit, we were rewarded with beautiful views of the valley and surrounding mountains. From there, we took another road downhill past the Valle Gavazzo stream. Unfortunately, along the way we came across a dead deer, probably killed by a wolf. The smell in the area was quite unpleasant.
 
-Eventually, we made it to the chalet, where we enjoyed a delicious lunch with a group of my friend’s friends. The return trip was much easier, taking us through the woods and then along a dirt road. We soon arrived back at the car and headed home.
+Eventually we arrived at the chalet, where we enjoyed a delicious lunch with a group of my friend's friends. The return was much easier, going through the woods and then down a dirt road. Before long we were back at the car and headed home.
 
 {{< carousel images="static/images/san_lucio.yaml" >}}
 

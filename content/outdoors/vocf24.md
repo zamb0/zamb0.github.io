@@ -5,13 +5,13 @@ draft = false
 tags = ['boulder', 'vocf']
 +++
 
-During the summer, I didn’t have much time for climbing or outdoor activities because of university exams and my work on my master’s thesis. But finally, September ended, and with it, my last exams.
+During the summer I did not have much time for climbing or outdoor activities because of university exams and work on my thesis. But finally September is over and with it my last exams.
 
-In the meantime, a friend told me about a climbing festival in the Piemonte, the [Valle Orco Climbing Festival](https://valleorcoclimbingfestival.com/). It sounded amazing, so I decided to join him. We planned to stay from Friday night to Sunday evening. As soon as I finished my last exam on Friday afternoon, we hit the road, arriving in Ceresole Reale that evening. I set up my tent, my friend parked his van, and we headed over to the night party in the festival area. The atmosphere was great, with lots of people and good music, and we spent the night dancing with fellow climbers.
+Meanwhile, a friend told me about a climbing festival in Piemonte, the [Valle Orco Climbing Festival](https://valleorcoclimbingfestival.com/). It sounded great, so I decided to join him. We planned to stay from Friday night to Sunday night. As soon as i finished my last exam on Friday afternoon, we set out and arrived in Ceresole Reale the same evening. I set up my tent, my friend parked his van and we headed to the night party in the festival area. The atmosphere was great, with lots of people and good music, and we spent the night dancing with fellow climbers.
 
-The next morning, we woke up early, grabbed a quick coffee, and headed to a climbing spot called Fonti. We spent the whole morning climbing some 5b and 5c routes and even gave a 6a a try. In the afternoon, we went to the Gold Digger climbing area to scout out some new projects.
+The next morning we woke up early, had a quick coffee and headed to a climbing area called Fonti. We spent the whole morning climbing some 5b and 5c routes and also tried a 6a. In the afternoon we went to the Gold Digger climbing area to explore some new projects.
 
-On Sunday morning, we went to Area 51, where we tackled some challenging boulders. I was thrilled to close my first crack boulder here! Later in the afternoon, we attended the closing ceremony, watching Olympic athlete [Hamish McArthur](https://www.instagram.com/hamish_mcarthur/) compete for the top prize in the boulder competition.
+Sunday morning we went to Area 51, where we tackled some challenging boulders. I was thrilled to close my first crack boulder here! In the late afternoon we attended the closing ceremony, watching the Olympic athlete [Hamish McArthur](https://www.instagram.com/hamish_mcarthur/) compete for the first prize in the bouldering competition.
 
 The festival was fantastic, the climbing areas were stunning, and everyone was so friendly. I really hope to return next year!
 
