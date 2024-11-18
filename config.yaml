@@ -24,6 +24,11 @@ menu:
       url: /outdoors/
       weight: 20
 
+    - identifier: simulations
+      name: Simulations
+      url: /simulations/
+      weight: 30
+
 #    - identifier: example
 #      name: example.org
 #      url: https://example.org
