@@ -34,6 +34,9 @@ params:
 #  defaultTheme: light
 #  defaultTheme: dark
   defaultTheme: auto # to switch between dark or light according to browser theme
+#  ShowShareButtons: true
+#  ShowReadingTime: true
+
 
   assets:
     favicon: "/favicon.ico"
@@ -46,7 +49,7 @@ params:
   profileMode:
     enabled: true
     title: "Fabio Zamboni" # optional default will be site title
-    subtitle: "IT Engineer"
+    subtitle: "Machine Learning, Data Science, DevOps and Automation Engineer Enthusiast"
 #    imageUrl: "<image link>" # optional
 #    imageTitle: "<title of image as alt>" # optional
 #    imageWidth: 120 # custom size
@@ -57,6 +60,8 @@ params:
       url: "https://github.com/zamb0"
     - name: "instagram"
       url: "https://www.instagram.com/fabisognoquotidiano/"
+    - name: "linkedin"
+      url: "https://www.linkedin.com/in/zamb0/"
     - name: "email"
       url: "mailto:solitaria.contadini_0y@icloud.com"
 
