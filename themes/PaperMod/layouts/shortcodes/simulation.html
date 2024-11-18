@@ -1,0 +1,18 @@
+<style>
+  input {
+    color: var(--color-primary);
+    width: 100px;
+  }
+</style>
+
+<div id="simulation-container">
+    <script src="/js/p5.js"></script>
+    <script>
+      const script = document.createElement('script');
+      script.src = "/js/{{ .Get `file` }}";
+      document.getElementById('simulation-container').appendChild(script);
+    </script>
+</div>
+
+
+
