@@ -14,11 +14,14 @@ let dh0 = 0; // Initial rate of change
 canvasX = 800;
 canvasY = 400;
 
+t=5
+
 // Input fields
 let AInput, kInput;
 
 // Graphs history
-let hHistory = [];
+let hHistory = [h0];
+let tHistory = [0];
 let maxHistory = 200;
 
 // Play/pause state
@@ -79,7 +82,7 @@ function draw() {
         hRate = 1 / Ar * (u - Au * Math.sqrt(2*g*(h-hu)));
 
         // Integrate to find the new water level
-        h += hRate * 0.1; // 0.1 is the time step
+        h += hRate * t; // 0.1 is the time step
 
         h = max(0, h); // Water level can't be negative
 
@@ -92,6 +95,8 @@ function draw() {
         // Store the water level in the history
         hHistory.push(h);
         if (hHistory.length > maxHistory) hHistory.shift();
+        tHistory.push(tHistory[tHistory.length - 1] + t);
+        if (tHistory.length > maxHistory) tHistory.shift();
     }
 
     // Draw the tank
@@ -138,6 +143,11 @@ function drawGraph() {
     stroke(0);
     line(0, 100, maxHistory, 100); // X axis
 
+    // Draw x-axis ticks and numbers
+    for (let i = 0; i <= maxHistory; i += 20) {
+        line(i, 98, i, 102); // Ticks for position graph
+    }
+
     // Draw the graph of the water level
     stroke(0, 0, 255);
     noFill();
@@ -160,7 +170,8 @@ function resetSimulation() {
     // Reset initial conditions
     h = Number(h0Input.value());
     hRate = 0;
-    hHistory = [];
+    hHistory = [h];
+    tHistory = [0];
 }
 
 function applyStep() {
