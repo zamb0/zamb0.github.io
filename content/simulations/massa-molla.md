@@ -2,4 +2,4 @@
 title: "Mass-Spring-Damper Simulation"
 ---
 
-{{< massamolla >}}
+{{< simulation file="massamolla.js" >}}
