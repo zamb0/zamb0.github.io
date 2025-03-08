@@ -15,4 +15,4 @@ Sunday morning we went to Area 51, where we tackled some challenging boulders. I
 
 The festival was fantastic, the climbing areas were stunning, and everyone was so friendly. I really hope to return next year!
 
-{{< carousel images="static/images/vocf24.yaml" >}}
+{{< carousel gallery="vocf24" >}}

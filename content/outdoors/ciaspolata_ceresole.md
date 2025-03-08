@@ -13,7 +13,7 @@ The trail started on a steep slope, and I was a bit unsure about my snowshoes. I
 
 When we finally reached the Rifugio Jervis, we were starving. The rifugio's kitchen was already closed, fortunatelly we had brought some sandwiches and snacks. After a quick lunch, we continued our hike down to the valley. The descent was another challenge, as the trail was steep and slippery. I was glad I had my snowshoes, even if i felt a bit unsteady at times. But I made it down safely, and we arrived back in Ceresole Reale around 4:00 pm. The bus was waiting for us, and we headed back to Pavia.
 
-{{< carousel images="static/images/ciaspolata_ceresole.yaml" >}}
+{{< carousel gallery="ciaspolata_ceresole" >}}
 
 {{< leaflet-map >}}
     {{< leaflet-layer id="org.openstreetmap.standard" selectorPosition="bottomleft" >}}

@@ -13,7 +13,7 @@ Once we reached the summit, we were rewarded with beautiful views of the valley 
 
 Eventually we arrived at the chalet, where we enjoyed a delicious lunch with a group of my friend's friends. The return was much easier, going through the woods and then down a dirt road. Before long we were back at the car and headed home.
 
-{{< carousel images="static/images/san_lucio.yaml" >}}
+{{< carousel gallery="san_lucio" >}}
 
 {{< leaflet-map >}}
     {{< leaflet-layer id="org.openstreetmap.standard" selectorPosition="bottomleft" >}}

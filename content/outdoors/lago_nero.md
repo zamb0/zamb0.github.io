@@ -19,7 +19,7 @@ At Prato Cipolla, we enjoyed a snack and a beer at the Rifugio Prato Cipolla. Th
 
 After our break, we began the descent back to Rocca d'Aveto. The path was straightforward but still a bit steep in places, and we arrived at the car in about an hour.
 
-{{< carousel images="static/images/lago_nero.yaml" >}}
+{{< carousel gallery="lago_nero" >}}
 
 {{< leaflet-map >}}
     {{< leaflet-layer id="org.openstreetmap.standard" selectorPosition="bottomleft" >}}

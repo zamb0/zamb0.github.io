@@ -11,7 +11,7 @@ It was a fun and relaxing day, but I look forward to going back, this time more 
 
 The boulder area is well documented on the dedicated [web page](https://riotinello.blogspot.com/), which provided us with all the information we needed to find the place and get started. We also met some other climbers who were friendly and helpful, making the experience even better. I look forward to returning to explore more of what the area has to offer.
 
-{{< carousel images="static/images/rio_tinello.yaml" >}}
+{{< carousel gallery="rio_tinello" >}}
 
 {{< leaflet-map >}}
     {{< leaflet-layer id="org.openstreetmap.standard" selectorPosition="bottomleft" >}}

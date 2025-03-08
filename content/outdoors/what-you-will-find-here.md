@@ -11,7 +11,7 @@ Each post will be tagged with the *activity* tag (e.g. climb, hike, etc.) so you
 
 I will also include photos and gps to help bring my experiences to life.
 
-{{< carousel images="static/images/intro.yaml" >}}
+{{< carousel gallery="intro" >}}
 
 {{< leaflet-map resizable=false >}}
     {{< leaflet-layer id="org.openstreetmap.standard" selectorPosition="bottomleft" >}}

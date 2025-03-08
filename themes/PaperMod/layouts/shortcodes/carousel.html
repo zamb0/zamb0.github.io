@@ -87,12 +87,13 @@
 <!-- Gallery -->
 <div id="carousel-container">
     <div id="carousel-slides">
-        {{- with (.Get "images") -}} 
-            {{- $fileContent := readFile . -}}
-            {{- if $fileContent -}}
-                {{- $images := $fileContent | transform.Unmarshal -}}
+        {{- with (.Get "gallery") -}}
+            {{- $images := index site.Data.galleries . -}}
+            {{- if $images -}}
                 {{- range $images -}} 
-                    <div class="carousel-slide"><img src="{{ . }}" alt="Image"></div>
+                    <div class="carousel-slide">
+                        <img src="{{ . }}" alt="Image">
+                    </div>
                 {{- end -}}
             {{- else -}}
                 <p>Nessuna immagine disponibile.</p>
