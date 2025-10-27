@@ -19,6 +19,11 @@ menu:
       url: /projects/
       weight: 10
 
+    - identifier: certifications
+      name: Certifications 🎓
+      url: /certifications/
+      weight: 15
+
     - identifier: outdoors
       name: Outdoors 🥾
       url: /outdoors/

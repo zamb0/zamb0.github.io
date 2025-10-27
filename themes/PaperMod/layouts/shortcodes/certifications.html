@@ -1,0 +1,95 @@
+<style>
+  .certifications {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+    padding: 10px;
+  }
+
+  .certification {
+    background-color: var(--color-card-bg);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: var(--card-box-shadow);
+    border: 1px solid rgba(200, 200, 200, 0.8);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .certification:hover {
+    box-shadow: var(--card-box-shadow-hover);
+    transform: translateY(-2px);
+  }
+
+  .certification_link {
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  .certification_badge {
+    width: 150px;
+    height: 150px;
+    object-fit: contain;
+    margin-bottom: 16px;
+    border-radius: 8px;
+  }
+
+  .certification_name {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: var(--color-primary);
+    text-align: center;
+  }
+
+  .certification_issuer {
+    font-size: 0.9rem;
+    color: var(--color-text);
+    margin-bottom: 4px;
+    text-align: center;
+  }
+
+  .certification_date {
+    font-size: 0.85rem;
+    color: var(--color-text-secondary);
+    text-align: center;
+  }
+
+  @media (max-width: 768px) {
+    .certifications {
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 16px;
+    }
+
+    .certification_badge {
+      width: 120px;
+      height: 120px;
+    }
+  }
+</style>
+
+<div class="certifications">
+  {{ range $.Site.Data.certifications }}
+  <div class="certification">
+    <a href="{{ .credential_url }}" class="certification_link" target="_blank" rel="noopener noreferrer">
+      <img src="{{ .badge_url }}" alt="{{ .name }}" class="certification_badge" loading="lazy" />
+      <div class="certification_name">
+        {{ .name }}
+      </div>
+      <div class="certification_issuer">
+        {{ .issuer }}
+      </div>
+      <div class="certification_date">
+        {{ .date }}
+      </div>
+    </a>
+  </div>
+  {{ end }}
+</div>

@@ -1,0 +1,47 @@
+name: Update Certifications
+
+on:
+  schedule:
+    # Esegui ogni lunedì alle 00:00 UTC
+    - cron: '0 0 * * 1'
+  workflow_dispatch: # Permette esecuzione manuale
+
+jobs:
+  update-certifications:
+    runs-on: ubuntu-latest
+    
+    permissions:
+      contents: write
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      
+      - name: Install dependencies
+        run: |
+          pip install requests
+      
+      - name: Fetch Credly badges
+        env:
+          CREDLY_USERNAME: fabio-zamboni
+        run: |
+          python scripts/fetch_credly_badges.py
+      
+      - name: Check for changes
+        id: check_changes
+        run: |
+          git diff --exit-code data/certifications.json || echo "changed=true" >> $GITHUB_OUTPUT
+      
+      - name: Commit and push if changed
+        if: steps.check_changes.outputs.changed == 'true'
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add data/certifications.json
+          git commit -m "🎓 Update certifications from Credly"
+          git push

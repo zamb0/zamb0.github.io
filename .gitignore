@@ -3,3 +3,14 @@ base_hugo.yml
 .hugo_build.lock
 .DS_Store
 /raft
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+.venv
+pyproject.toml
