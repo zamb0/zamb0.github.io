@@ -1,27 +1,25 @@
 <style>
   .certifications {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 20px;
-    padding: 10px;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 28px;
+    padding: 20px 10px;
   }
 
   .certification {
-    background-color: var(--color-card-bg);
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: var(--card-box-shadow);
-    border: 1px solid rgba(200, 200, 200, 0.8);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    background: var(--color-card-bg);
+    border-radius: 16px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(200, 200, 200, 0.3);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: hidden;
+    position: relative;
   }
 
   .certification:hover {
-    box-shadow: var(--card-box-shadow-hover);
-    transform: translateY(-2px);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    border-color: var(--color-primary);
   }
 
   .certification_link {
@@ -29,48 +27,135 @@
     color: inherit;
     display: flex;
     flex-direction: column;
+    height: 100%;
+  }
+
+  .certification_header {
+    background: linear-gradient(135deg, rgba(var(--primary-rgb, 0, 102, 204), 0.05) 0%, rgba(var(--primary-rgb, 0, 102, 204), 0.02) 100%);
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
     align-items: center;
-    width: 100%;
+    border-bottom: 1px solid rgba(200, 200, 200, 0.2);
   }
 
   .certification_badge {
-    width: 150px;
-    height: 150px;
+    width: 140px;
+    height: 140px;
     object-fit: contain;
     margin-bottom: 16px;
-    border-radius: 8px;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+    transition: transform 0.3s ease;
+  }
+
+  .certification:hover .certification_badge {
+    transform: scale(1.05);
+  }
+
+  .certification_date_badge {
+    display: inline-block;
+    background: var(--color-primary);
+    color: white;
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+  }
+
+  .certification_body {
+    padding: 20px 24px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    flex: 1;
   }
 
   .certification_name {
-    font-size: 1.1rem;
-    font-weight: 600;
-    margin-bottom: 8px;
+    font-size: 1.15rem;
+    font-weight: 700;
     color: var(--color-primary);
-    text-align: center;
+    line-height: 1.3;
+    margin: 0;
+    min-height: 2.6em;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
   }
 
   .certification_issuer {
     font-size: 0.9rem;
     color: var(--color-text);
-    margin-bottom: 4px;
-    text-align: center;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 6px;
   }
 
-  .certification_date {
+  .certification_issuer::before {
+    content: "🏢";
+    font-size: 1rem;
+  }
+
+  .certification_description {
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+    line-height: 1.5;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-align: left;
+    margin-top: 4px;
+  }
+
+  .certification_footer {
+    padding: 12px 24px;
+    background: rgba(var(--primary-rgb, 0, 102, 204), 0.03);
+    border-top: 1px solid rgba(200, 200, 200, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
     font-size: 0.85rem;
     color: var(--color-text-secondary);
-    text-align: center;
+    font-weight: 500;
+  }
+
+  .certification_footer::before {
+    content: "🔗";
+    font-size: 1rem;
   }
 
   @media (max-width: 768px) {
     .certifications {
-      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-      gap: 16px;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 20px;
+      padding: 16px 8px;
     }
 
     .certification_badge {
       width: 120px;
       height: 120px;
+    }
+
+    .certification_header {
+      padding: 20px;
+    }
+
+    .certification_body {
+      padding: 16px 20px 20px;
+    }
+
+    .certification_name {
+      font-size: 1.05rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .certifications {
+      grid-template-columns: 1fr;
     }
   }
 </style>
@@ -79,16 +164,24 @@
   {{ range $.Site.Data.certifications }}
   <div class="certification">
     <a href="{{ .credential_url }}" class="certification_link" target="_blank" rel="noopener noreferrer">
-      <img src="{{ .badge_url }}" alt="{{ .name }}" class="certification_badge" loading="lazy" />
-      <div class="certification_name">
-        {{ .name }}
+      
+      <div class="certification_header">
+        <img src="{{ .badge_url }}" alt="{{ .name }}" class="certification_badge" loading="lazy" />
+        <span class="certification_date_badge">{{ .date }}</span>
       </div>
-      <div class="certification_issuer">
-        {{ .issuer }}
+      
+      <div class="certification_body">
+        <h3 class="certification_name">{{ .name }}</h3>
+        <div class="certification_issuer">{{ .issuer }}</div>
+        {{ if .description }}
+        <p class="certification_description">{{ .description }}</p>
+        {{ end }}
       </div>
-      <div class="certification_date">
-        {{ .date }}
+      
+      <div class="certification_footer">
+        View Credential
       </div>
+      
     </a>
   </div>
   {{ end }}

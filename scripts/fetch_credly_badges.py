@@ -46,11 +46,12 @@ def fetch_credly_badges(username: str) -> List[Dict]:
             try:
                 # Estrai informazioni dal badge
                 name = badge_data.get('badge_template', {}).get('name', 'Unknown Badge')
-                issuer = badge_data.get('badge_template', {}).get('issuer', {}).get('name', 'Unknown Issuer')
+                issuer = badge_data.get('badge_template', {}).get('issuer', {}).get('summary', 'Unknown Issuer')
+                description = badge_data.get('badge_template', {}).get('description', '')
                 
                 # Data di emissione
                 issued_at = badge_data.get('issued_at', '')
-                year = issued_at.split('-')[0] if issued_at else "2024"
+                year = issued_at.split('-')[0] if issued_at else "2025"
                 
                 # URL immagine badge (usa dimensione grande)
                 badge_image_url = badge_data.get('badge_template', {}).get('image_url', '')
@@ -66,6 +67,7 @@ def fetch_credly_badges(username: str) -> List[Dict]:
                     "name": name,
                     "issuer": issuer,
                     "date": year,
+                    "description": description,
                     "badge_url": badge_image_url,
                     "credential_url": badge_url
                 }
