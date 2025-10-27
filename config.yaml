@@ -24,6 +24,11 @@ menu:
       url: /certifications/
       weight: 15
 
+    - identifier: chat
+      name: AI Chat 💬
+      url: /chat/
+      weight: 17
+
     - identifier: outdoors
       name: Outdoors 🥾
       url: /outdoors/
