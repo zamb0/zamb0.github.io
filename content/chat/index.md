@@ -13,8 +13,14 @@ layout: page
         <p>Chat with an AI model running entirely in your browser using WebGPU</p>
         <button id="load-model-btn" class="primary-button">Load Model</button>
         <div id="loading-info" class="loading-info" style="display: none;">
-          <div class="spinner"></div>
-          <span id="loading-text">Loading...</span>
+          <div class="loading-spinner-container">
+            <div class="spinner"></div>
+            <span id="loading-text">Loading...</span>
+          </div>
+          <div class="progress-bar-container" id="progress-bar-container">
+            <div class="progress-bar" id="progress-bar"></div>
+          </div>
+          <span class="progress-text" id="progress-text">0%</span>
         </div>
       </div>
     </div>
@@ -67,6 +73,13 @@ layout: page
     font-size: 4rem;
   }
 
+  .status-text {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
   .status-text h3 {
     margin: 0 0 0.5rem 0;
     color: var(--primary);
@@ -106,10 +119,19 @@ layout: page
 
   .loading-info {
     display: flex;
+    flex-direction: column;
     align-items: center;
     gap: 12px;
     margin-top: 1rem;
-    color: var(--secondary);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+  }
+
+  .loading-spinner-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
   }
 
   .spinner {
@@ -119,6 +141,36 @@ layout: page
     border-top-color: var(--primary);
     border-radius: 50%;
     animation: spin 1s linear infinite;
+  }
+
+  #loading-text {
+    color: var(--secondary);
+    font-size: 0.9rem;
+    text-align: center;
+  }
+
+  .progress-bar-container {
+    width: 100%;
+    height: 8px;
+    background: var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+    display: none;
+  }
+
+  .progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, var(--primary), var(--tertiary));
+    border-radius: 4px;
+    transition: width 0.3s ease;
+    width: 0%;
+  }
+
+  .progress-text {
+    font-size: 0.85rem;
+    color: var(--primary);
+    font-weight: 600;
+    display: none;
   }
 
   @keyframes spin {
@@ -294,6 +346,7 @@ layout: page
   let conversationHistory = [];
 
   let loadModelBtn, loadingInfo, loadingText, chatStatus, chatInterface, chatMessages, chatInput, sendBtn;
+  let progressBar, progressBarContainer, progressText;
 
   /**
    * Inizializza gli elementi del DOM
@@ -307,6 +360,9 @@ layout: page
     chatMessages = document.getElementById('chat-messages');
     chatInput = document.getElementById('chat-input');
     sendBtn = document.getElementById('send-btn');
+    progressBar = document.getElementById('progress-bar');
+    progressBarContainer = document.getElementById('progress-bar-container');
+    progressText = document.getElementById('progress-text');
   }
 
   /**
@@ -330,9 +386,18 @@ layout: page
             if (data.status === 'progress') {
               const progressPercent = Math.round(data.progress);
               const fileName = data.file?.split('/').pop() || 'file';
-              loadingText.textContent = `Download: ${fileName} (${progressPercent}%)`;
+              
+              // Mostra barra di progresso e percentuale
+              progressBarContainer.style.display = 'block';
+              progressText.style.display = 'block';
+              progressBar.style.width = progressPercent + '%';
+              progressText.textContent = progressPercent + '%';
+              
+              loadingText.textContent = `Downloading: ${fileName}`;
             } else if (data.status === 'done') {
               loadingText.textContent = 'Initializing model...';
+              progressBarContainer.style.display = 'none';
+              progressText.style.display = 'none';
             } else if (data.status === 'ready') {
               loadingText.textContent = 'Model ready!';
             }
@@ -390,9 +455,18 @@ layout: page
             if (data.status === 'progress') {
               const progressPercent = Math.round(data.progress);
               const fileName = data.file?.split('/').pop() || 'file';
-              loadingText.textContent = `Download: ${fileName} (${progressPercent}%)`;
+              
+              // Mostra barra di progresso e percentuale
+              progressBarContainer.style.display = 'block';
+              progressText.style.display = 'block';
+              progressBar.style.width = progressPercent + '%';
+              progressText.textContent = progressPercent + '%';
+              
+              loadingText.textContent = `Downloading: ${fileName}`;
             } else if (data.status === 'done') {
               loadingText.textContent = 'Initializing...';
+              progressBarContainer.style.display = 'none';
+              progressText.style.display = 'none';
             }
           }
         }
@@ -540,9 +614,9 @@ layout: page
       assistantMessage = assistantMessage.substring(prompt.length).trim();
 
       // Pulisci output
-      assistantMessage = assistantMessage.split['<|user|>'](0).trim();
-      assistantMessage = assistantMessage.split['<|assistant|>'](0).trim();
-      assistantMessage = assistantMessage.split['<|endoftext|>'](0).trim();
+      assistantMessage = assistantMessage.split('<|user|>')[0].trim();
+      assistantMessage = assistantMessage.split('<|assistant|>')[0].trim();
+      assistantMessage = assistantMessage.split('<|endoftext|>')[0].trim();
 
       if (assistantMessage) {
         addMessage('assistant', assistantMessage);
