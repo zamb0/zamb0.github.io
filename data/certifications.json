@@ -1,5 +1,13 @@
 [
   {
+    "name": "Astronomer Certification DAG Authoring for Apache Airflow 3",
+    "issuer": "issued by Astronomer",
+    "date": "2025",
+    "description": "Earners of the Astronomer Certification for DAG Authoring in Apache Airflow can demonstrate the skills needed to effectively create reliable and powerful DAGs following best practices on Apache Airflow. This includes choosing the right operators according to the needs, defining task argument's values wisely, knowing what feature to use and its limitations, making right decisions on DAG design. Earners are able to successfully use Airflow daily.",
+    "badge_url": "https://images.credly.com/images/6e9570ae-239f-47b9-85ff-0946c3844088/blob",
+    "credential_url": "https://www.credly.com/badges/58a247c2-5ee3-4d13-a9b8-6cbef4ae9606"
+  },
+  {
     "name": "Astronomer Certification for Apache Airflow 3 Fundamentals",
     "issuer": "issued by Astronomer",
     "date": "2025",
