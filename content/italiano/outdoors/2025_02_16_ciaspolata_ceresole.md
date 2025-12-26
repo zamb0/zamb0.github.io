@@ -2,6 +2,7 @@
 title = 'Ciaspolata a Ceresole Reale'
 date = 2025-03-08T21:03:14+01:00
 draft = false
+tags = ['hike', 'ceresole']
 +++
 
 Ero davvero entusiasta per questa uscita: la mia prima esperienza con le ciaspole! Era da un po’ che volevo provarle e, dopo alcuni cambiamenti nella mia vita, finalmente si è presentata l’occasione giusta. La sezione CAI di Pavia ha organizzato una ciaspolata a Ceresole Reale e mi sono iscritto subito. Mi sono persino iscritto anche alla successiva, prevista per il weekend seguente. Fortunatamente il CAI mette a disposizione le ciaspole per chi non le possiede, quindi non ho dovuto preoccuparmi di noleggiarle o comprarle.
