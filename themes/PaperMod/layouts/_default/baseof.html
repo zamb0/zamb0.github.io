@@ -9,6 +9,9 @@
     {{- partial "head.html" . }}
 </head>
 
+<script data-goatcounter="https://zamb0.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+
 <body class="
 {{- if (or (ne .Kind `page` ) (eq .Layout `archives`) (eq .Layout `search`)) -}}
 {{- print "list" -}}

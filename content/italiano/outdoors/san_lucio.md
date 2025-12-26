@@ -1,0 +1,23 @@
++++
+title = 'San Lucio'
+date = 2024-09-06T11:10:26+02:00
+draft = false
+tags = ['hike', 'clusone']
++++
+
+Una mia amica doveva restituire un oggetto ad una sua amica a Clusone ed ha invitato me e mia sorella ad accompagnarla. Abbiamo accettato molto volentieri! Il piano era quello di fare un’escursione fino alla Cima di Formico e poi pranzare nella baita di un amico.
+
+L’escursione è iniziata bene. Abbiamo camminato nel bosco lungo un sentiero dolce, non troppo ripido. Ben presto siamo arrivati a un prato chiamato Pianone, dove alcune mucche pascolavano tranquillamente. Proseguendo, il sentiero è diventato gradualmente più ripido. Dopo aver superato Forcella Larga, il terreno è diventato più roccioso e impegnativo man mano che ci avvicinavamo alla vetta.
+
+Una volta raggiunta la cima, siamo stati ripagati da una splendida vista sulla valle e sulle montagne circostanti. Da lì abbiamo imboccato un’altra strada in discesa, passando nei pressi del torrente Valle Gavazzo. Purtroppo lungo il percorso ci siamo imbattuti in un cervo morto, probabilmente ucciso da un lupo. L’odore nella zona era piuttosto sgradevole.
+
+Alla fine siamo arrivati allo chalet, dove abbiamo gustato un ottimo pranzo in compagnia di un gruppo di amiche della mia amica. Il ritorno è stato molto più semplice, passando attraverso il bosco e poi lungo una strada sterrata. In poco tempo siamo tornati alla macchina e abbiamo fatto rientro a casa.
+
+{{< carousel gallery="san_lucio" >}}
+
+{{< leaflet-map >}}
+    {{< leaflet-layer id="org.openstreetmap.standard" selectorPosition="bottomleft" >}}
+    {{< leaflet-scale position="bottomright" >}}
+    {{< leaflet-track path="/gpx/San_Lucio_2024_08_28.gpx" color="DarkRed" >}}
+    {{< leaflet-elevation-profile expanded=true resizable=true width=300 height=150 >}}
+{{< /leaflet-map >}}

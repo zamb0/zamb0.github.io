@@ -1,0 +1,29 @@
++++
+title = 'Esplorando i dintorni del Lago Nero'
+date = 2024-08-19T16:30:21+02:00
+draft = false
+tags = ['hike', 'piacenza']
++++
+
+Il giorno prima dell’escursione avevo voglia di fare una via ferrata e mi sono ricordato che ce ne sono due nei pressi del Lago Nero. Era da parecchio tempo che non tornavo a camminare nella zona di Piacenza, quindi ho deciso di riscoprire quest’area. Ho trovato un bel giro con partenza da Rocca d’Aveto che mi avrebbe portato in cima al Monte Roncalla passando per la prima ferrata, la [Adolfo Ferrari](https://www.ferrate365.it/vie-ferrate/ferrata-adolfo-ferrari-roncalla/). Da lì, il piano era di proseguire oltre il Lago Nero per raggiungere la seconda ferrata, la [Mazzocchi](https://www.ferrate365.it/vie-ferrate/ferrata-mazzocchi-monte-nero-val-aveto/). L’escursione si sarebbe conclusa a Rocca d’Aveto, passando per Prato Cipolla, una splendida radura perfetta per una pausa prima di rientrare all’auto.
+
+Purtroppo, controllando le previsioni meteo, mi sono accorto che aveva piovuto per diversi giorni, rendendo le rocce bagnate. Le vie ferrate con la roccia bagnata sono estremamente pericolose! Ho quindi deciso di modificare il percorso ed escludere completamente le ferrate. Avrei comunque fatto un giro simile, sostituendo il Monte Roncalla con il Monte Groppo Rosso.
+
+Non ero solo in questa avventura: con me c’erano un’amica e mia sorella. Abbiamo iniziato l’escursione scendendo lungo un sentiero che ci ha portato a un piccolo torrente, affluente del Fossato Grosso. Dopo aver attraversato il Fossato Grosso, abbiamo iniziato la salita verso il Monte Groppo Rosso. La salita era ripida, quindi ci siamo fermati più volte per riprendere fiato. Man mano che salivamo di quota, la vegetazione cambiava gradualmente, passando dal bosco fitto tipico della zona a una flora più alpina. Arrivati in cima al Monte Groppo Rosso, siamo stati ripagati con una vista spettacolare sulle montagne circostanti, tra cui Monte Roncalla, Monte Bue e Monte Nero.
+
+Abbiamo deciso di rimandare il pranzo e proseguire verso il Lago Nero. Il sentiero era facile, con qualche lieve saliscendi ma senza particolari difficoltà. Lungo il percorso siamo passati dal Rifugio Astass e dalla Fontana Gelata, una piccola cascata dove l’acqua era così fredda da essere quasi intoccabile. Curiosamente, la fontana vicina dove solitamente si riempiono le borracce era asciutta.
+
+Una volta arrivati al Lago Nero, ci siamo fermati per pranzo. Il lago era splendido e, per pura coincidenza, abbiamo incontrato anche alcuni amici. Dopo mangiato e una breve pennichella, abbiamo proseguito verso Prato Cipolla. Il sentiero, che in inverno viene utilizzato come pista da sci, era ripido e in discesa, quindi abbiamo dovuto fare attenzione a non scivolare.
+
+A Prato Cipolla ci siamo concessi uno spuntino e una birra al Rifugio Prato Cipolla. La radura era magnifica, circondata da montagne suggestive. Abbiamo anche scoperto una falesia nelle vicinanze, dove torneremo sicuramente. ([Falesia Dente della Cipolla](https://www.gulliver.it/itinerari/dente-della-cipolla/))
+
+Dopo la pausa, abbiamo iniziato la discesa verso Rocca d’Aveto. Il sentiero era semplice ma ancora un po’ ripido in alcuni tratti, e in circa un’ora siamo tornati all’auto.
+
+{{< carousel gallery="lago_nero" >}}
+
+{{< leaflet-map >}}
+    {{< leaflet-layer id="org.openstreetmap.standard" selectorPosition="bottomleft" >}}
+    {{< leaflet-scale position="bottomright" >}}
+    {{< leaflet-track path="/gpx/Lago_Nero_2024_08_17.gpx" color="DarkRed" >}}
+    {{< leaflet-elevation-profile expanded=true resizable=true width=300 height=150 >}}
+{{< /leaflet-map >}}

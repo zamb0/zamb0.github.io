@@ -1,5 +1,4 @@
 baseURL: https://zambo.me
-languageCode: en-us
 title: Fabio Zamboni
 theme: ["PaperMod"]
 
@@ -43,14 +42,74 @@ menu:
 #      name: example.org
 #      url: https://example.org
 #      weight: 30
+defaultContentLanguage: it
+languages:
+  en:
+    contentDir: content/english
+    languageCode: en-us
+    languageName: English
+    menu:
+    main:
+      - identifier: projects
+        name: Projects 💻
+        url: /projects/
+        weight: 10
+
+      - identifier: certifications
+        name: Certifications 🎓
+        url: /certifications/
+        weight: 15
+
+      - identifier: chat
+        name: AI Chat 💬
+        url: /chat/
+        weight: 17
+
+      - identifier: outdoors
+        name: Outdoors 🥾
+        url: /outdoors/
+        weight: 20
+
+      - identifier: simulations
+        name: Simulations 📈
+        url: /simulations/
+        weight: 30
+    weight: 10
+  it:
+    contentDir: content/italiano
+    languageCode: it-IT
+    languageName: Italiano
+    menu:
+      main:
+        - identifier: projects
+          name: Progetti 💻
+          url: /projects/
+          weight: 10
+
+        - identifier: certifications
+          name: Certificazioni 🎓
+          url: /certifications/
+          weight: 15
+
+        - identifier: chat
+          name: AI Chat 💬
+          url: /chat/
+          weight: 17
+
+        - identifier: outdoors
+          name: Avventure 🥾
+          url: /outdoors/
+          weight: 20
+
+        - identifier: simulations
+          name: Simulazioni 📈
+          url: /simulations/
+          weight: 30
+    weight: 20
 
 params:
   env: production
-#  defaultTheme: light
-#  defaultTheme: dark
-  defaultTheme: auto # to switch between dark or light according to browser theme
-#  ShowShareButtons: true
-#  ShowReadingTime: true
+  defaultTheme: auto
 
 
   assets:
