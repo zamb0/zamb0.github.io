@@ -1,43 +1,40 @@
-{{- with .cxt}} {{/* Apply proper context from dict */}}
-{{- if (and .Params.cover.image (not $.isHidden)) }}
-{{- $alt := (.Params.cover.alt | default .Params.cover.caption | plainify) }}
-{{- $loading := cond $.IsSingle "eager" "lazy" }}
-<figure class="entry-cover">
-    {{- $responsiveImages := (.Params.cover.responsiveImages | default site.Params.cover.responsiveImages) | default true }}
-    {{- $addLink := (and site.Params.cover.linkFullImages $.IsSingle) }}
-    {{- $pageBundleCover     := (.Resources.ByType "image").GetMatch (printf "*%s*" (.Params.cover.image)) }}
-    {{- $globalResourcesCover := (resources.ByType "image").GetMatch (printf "*%s*" (.Params.cover.image)) }}
-    {{- $cover := (or $pageBundleCover $globalResourcesCover)}}
-    {{- if $cover -}}{{/* i.e it is present in page bundle */}}
-        {{- if $addLink }}<a href="{{ (path.Join .RelPermalink .Params.cover.image) | absURL }}" target="_blank"
-            rel="noopener noreferrer">{{ end -}}
-        {{- $sizes := (slice "360" "480" "720" "1080" "1500") }}
-        {{- $processableFormats := (slice "jpg" "jpeg" "png" "tif" "bmp" "gif") -}}
-        {{- if hugo.IsExtended -}}
-            {{- $processableFormats = $processableFormats | append "webp" -}}
-        {{- end -}}
-        {{- $prod := (hugo.IsProduction | or (eq site.Params.env "production")) }}
-        {{- if (and (in $processableFormats $cover.MediaType.SubType) ($responsiveImages) (eq $prod true)) }}
-        <img loading="{{$loading}}" srcset="{{- range $size := $sizes -}}
-                        {{- if (ge $cover.Width $size) -}}
-                        {{ printf "%s %s" (($cover.Resize (printf "%sx" $size)).Permalink) (printf "%sw ," $size) -}}
-                        {{ end }}
-                    {{- end -}}{{$cover.Permalink }} {{printf "%dw" ($cover.Width)}}" 
-            sizes="(min-width: 768px) 720px, 100vw" src="{{ $cover.Permalink }}" alt="{{ $alt }}" 
-            width="{{ $cover.Width }}" height="{{ $cover.Height }}">
-        {{- else }}{{/* Unprocessable image or responsive images disabled */}}
-        <img loading="{{$loading}}" src="{{ (path.Join .RelPermalink .Params.cover.image) | absURL }}" alt="{{ $alt }}">
-        {{- end }}
-    {{- else }}{{/* For absolute urls and external links, no img processing here */}}
-        {{- if $addLink }}<a href="{{ (.Params.cover.image) | absURL }}" target="_blank"
-            rel="noopener noreferrer">{{ end -}}
-            <img loading="{{$loading}}" src="{{ (.Params.cover.image) | absURL }}" alt="{{ $alt }}">
+{{- with .cxt}}
+  {{- $isHidden := $.isHidden }}
+  {{- $slug := .File.BaseFileName }}
+
+  {{- /* Proviamo prima jpeg, poi png */ -}}
+  {{- $possibleFormats := slice "jpeg" "jpg" "png" }}
+  {{- $coverParam := "" }}
+  {{- range $fmt := $possibleFormats }}
+    {{- $testPath := printf "%s/%s-0.%s" $slug $slug $fmt }}
+    {{- if fileExists (printf "static/images/%s" $testPath) }}
+      {{- $coverParam = $testPath }}
+      {{- break }}
     {{- end }}
-    {{- if $addLink }}</a>{{ end -}}
-    {{/*  Display Caption  */}}
-    {{- if $.IsSingle }}
-        {{ with .Params.cover.caption }}<p>{{ . | markdownify }}</p>{{- end }}
-    {{- end }}
-</figure>
-{{- end }}{{/* End image */}}
-{{- end -}}{{/* End context */ -}}
+  {{- end }}
+
+  {{- /* Se non trovato, fallback a jpeg */ -}}
+  {{- if eq $coverParam "" }}
+    {{- $coverParam = printf "%s/%s-0.jpeg" $slug $slug }}
+  {{- end }}
+
+  {{- /* Log del path scelto */ -}}
+  {{- /* warnf "Cover path per %s: %s" .Title $coverParam */}}
+
+  {{- if (and (not $.IsSingle) (not $isHidden)) }}
+    {{- $alt := (.Params.cover.alt | default .Params.cover.caption | default .Title | plainify) }}
+    {{- $loading := cond $.IsSingle "eager" "lazy" }}
+
+    <figure class="entry-cover left-cover">
+      {{- $pageBundleCover := (.Resources.ByType "image").GetMatch (printf "*%s*" $coverParam) }}
+      {{- $globalResourcesCover := (resources.ByType "image").GetMatch (printf "*%s*" $coverParam) }}
+      {{- $cover := or $pageBundleCover $globalResourcesCover }}
+
+      {{- if $cover }}
+        <img loading="{{$loading}}" src="{{ $cover.Permalink }}" alt="{{ $alt }}" width="150" height="150">
+      {{- else }}
+        <img loading="{{$loading}}" src="/images/{{ $coverParam }}" alt="{{ $alt }}" width="150" height="150">
+      {{- end }}
+    </figure>
+  {{- end }}
+{{- end }}

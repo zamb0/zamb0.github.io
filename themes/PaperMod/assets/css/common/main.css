@@ -1,3 +1,4 @@
+/* --- Layout principale --- */
 .main {
     position: relative;
     min-height: calc(100vh - var(--header-height) - var(--footer-height));
@@ -26,7 +27,6 @@
 .pagination .next {
     margin-inline-start: auto;
 }
-
 
 .social-icons a {
     display: inline-flex;
@@ -63,4 +63,78 @@ pre {
 div.highlight:hover .copy-code,
 pre:hover .copy-code {
     display: block;
+}
+
+/* --- Lista dei post --- */
+.flex-container {
+  position: relative; /* necessario per overlay link */
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  margin-bottom: 2rem;
+}
+
+.entry-cover.left-cover,
+.entry-text {
+  position: relative; 
+  z-index: 1;
+  pointer-events: none; /* il click passa all'overlay */
+}
+
+.entry-cover.left-cover {
+  flex-shrink: 0;
+  width: 150px;
+  height: 150px;
+  overflow: hidden;
+}
+
+.entry-cover.left-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;       /* riempie l'area senza deformare */
+  object-position: center; /* ritaglio centrato */
+}
+
+.entry-text {
+  flex: 1;
+}
+
+.entry-link {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;  /* sopra tutto */
+  text-decoration: none;
+}
+
+/* --- Mobile --- */
+@media (max-width: 768px) {
+  .flex-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .entry-cover.left-cover {
+    width: 100%;
+    max-width: 300px;  /* larghezza massima */
+    height: 200px;     /* altezza uniforme */
+    overflow: hidden;
+    margin: 0 auto 1rem; /* centra la cover */
+  }
+
+  .entry-cover.left-cover img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;       /* riempie l'area senza deformare */
+    object-position: center; /* ritaglio centrato */
+    display: block;
+    margin: 0 auto;          /* centra l'immagine */
+  }
+
+  .entry-text {
+    width: 100%;
+    text-align: center;
+  }
 }

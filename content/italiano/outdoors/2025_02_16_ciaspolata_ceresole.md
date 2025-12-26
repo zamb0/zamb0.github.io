@@ -13,7 +13,7 @@ Il sentiero iniziava con un tratto piuttosto ripido e all’inizio ero un po’ 
 
 Quando finalmente siamo arrivati al Rifugio Jervis, eravamo affamatissimi. La cucina del rifugio era già chiusa, ma fortunatamente avevamo con noi panini e qualche snack. Dopo un pranzo veloce, abbiamo proseguito scendendo verso la valle. La discesa è stata un’altra sfida: il sentiero era ripido e scivoloso. Sono stato contento di avere le ciaspole, anche se a tratti mi sentivo un po’ instabile. In ogni caso, sono arrivato a valle senza problemi e siamo rientrati a Ceresole Reale intorno alle 16:00. Il pullman ci aspettava e siamo ripartiti verso Pavia.
 
-{{< carousel gallery="ciaspolata_ceresole" >}}
+{{< carousel gallery="2025_02_16_ciaspolata_ceresole" >}}
 
 {{< leaflet-map >}}
     {{< leaflet-layer id="org.openstreetmap.standard" selectorPosition="bottomleft" >}}

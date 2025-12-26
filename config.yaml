@@ -111,7 +111,6 @@ params:
   env: production
   defaultTheme: auto
 
-
   assets:
     favicon: "/favicon.ico"
     favicon16x16: "/favicon-16x16.png"

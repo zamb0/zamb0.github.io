@@ -11,7 +11,7 @@ Sono andato a fare boulder al Rio Tinello con un amico ed è stata la nostra pri
 
 L’area boulder è ben documentata sulla [pagina web dedicata](https://riotinello.blogspot.com/), che ci ha fornito tutte le informazioni necessarie per trovare il posto e iniziare a scalare. Abbiamo anche incontrato altri climber, molto disponibili e simpatici, che hanno reso l’esperienza ancora più piacevole. Non vedo l’ora di tornare per esplorare tutto ciò che quest’area ha da offrire.
 
-{{< carousel gallery="rio_tinello" >}}
+{{< carousel gallery="2024_08_31_rio_tinello" >}}
 
 {{< leaflet-map >}}
     {{< leaflet-layer id="org.openstreetmap.standard" selectorPosition="bottomleft" >}}
