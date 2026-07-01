@@ -1,5 +1,13 @@
 [
   {
+    "name": "AWS Certified Solutions Architect – Associate",
+    "issuer": "issued by Amazon Web Services Training and Certification",
+    "date": "2026",
+    "description": "Earners of this certification have a comprehensive understanding of AWS services and technologies. They demonstrated the ability to build secure and robust solutions using architectural design principles based on customer requirements. Badge owners are able to strategically design well-architected distributed systems that are scalable, resilient, efficient, and fault-tolerant.",
+    "badge_url": "https://images.credly.com/images/0e284c3f-5164-4b21-8660-0d84737941bc/image.png",
+    "credential_url": "https://www.credly.com/badges/c4f861f4-e989-4699-bb2e-bf46c475ac1e"
+  },
+  {
     "name": "Astronomer Certification DAG Authoring for Apache Airflow 3",
     "issuer": "issued by Astronomer",
     "date": "2025",
@@ -29,6 +37,6 @@
     "date": "2025",
     "description": "Earners of this certification have a fundamental understanding of IT services and their uses in the AWS Cloud. They demonstrated cloud fluency and foundational AWS knowledge. Badge owners are able to identify essential AWS services necessary to set up AWS-focused projects.",
     "badge_url": "https://images.credly.com/images/00634f82-b07f-4bbd-a6bb-53de397fc3a6/image.png",
-    "credential_url": "https://www.credly.com/badges/338dce78-926e-4782-b09f-0c21bea2fdb6"
+    "credential_url": "https://www.credly.com/badges/edd1d916-05a4-4629-8c41-ef5cba8be5a2"
   }
 ]
